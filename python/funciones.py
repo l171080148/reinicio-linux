@@ -1,25 +1,24 @@
-def pedir_numero():
-    return int(input(" Adivina el numero:"))
+usuarios = []
 
-def verificar(numero,secreto):
-    return numero== secreto
+def registrar_usuario():
+    nombre = input("Nombre: ")
 
-numero_secreto=7 
-intentos=3
-
-while intentos>0:
-    numero=pedir_numero()
-
-    if verificar(numero,numero_secreto):
-        print(" Ganaste!!")
-        break
-
-    else:
-        intentos-=1
-        print("ncorrecto, te quedan",intentos)
-
-    if intentos==0:
-        Print("Perdiste...")
-        
-
+    try:
+        edad = int(input("Edad: "))
+    except:
+        print("Edad invalidad")
+        return
     
+    usuario ={
+        "nombre":nombre,
+        "edad":edad
+    }
+
+    usuarios.append(usuario)
+     
+def mostrar_usuarios():
+    for usuario in usuarios:
+        print("Nombre:",
+         usuario["nombre"], "| Edad: ",
+        usuario["edad"])
+        
